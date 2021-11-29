@@ -25,7 +25,7 @@
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 432, 112, 32, 48 )
+0/region = Rect2( 416, 112, 64, 48 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
@@ -96,6 +96,7 @@ format = 1
 tile_data = PoolIntArray( 0, 0, 0, 262144, 2, 0, 262147, 1, 0 )
 
 [node name="ArchLevel2" type="TileMap" parent="."]
+position = Vector2( -16, 0 )
 z_index = 1
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )

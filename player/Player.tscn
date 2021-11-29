@@ -1,7 +1,20 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
+[ext_resource path="res://assets/TX Shadow.png" type="Texture" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/player/Male 02-3.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 480, 32, 30 )
+
+[sub_resource type="SpriteFrames" id=38]
+animations = [ {
+"frames": [ SubResource( 37 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.06259
@@ -202,6 +215,11 @@ start_node = "Idle"
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, 2 )
 script = ExtResource( 2 )
+
+[node name="ShadowSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0.380392 )
+position = Vector2( 6, -5 )
+frames = SubResource( 38 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
