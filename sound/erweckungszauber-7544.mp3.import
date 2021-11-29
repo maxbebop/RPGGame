@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/erweckungszauber-7544.mp3-1018be8eec3c4df1b2f0b2354412e806.mp3str"
+
+[deps]
+
+source_file="res://sound/erweckungszauber-7544.mp3"
+dest_files=[ "res://.import/erweckungszauber-7544.mp3-1018be8eec3c4df1b2f0b2354412e806.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
