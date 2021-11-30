@@ -1,15 +1,59 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://rootScene/Root.gd" type="Script" id=1]
+[ext_resource path="res://rootScene/Inventory.tscn" type="PackedScene" id=2]
 
 [node name="Root" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="InventoryContainer" type="HSplitContainer" parent="."]
-margin_left = 26.0
-margin_top = 14.0
-margin_right = 195.0
-margin_bottom = 48.0
+anchor_left = 0.106
+anchor_top = 0.06
+anchor_right = 0.106
+anchor_bottom = 0.06
+margin_left = -75.544
+margin_top = -16.0
+margin_right = 114.456
+margin_bottom = 24.0
+rect_scale = Vector2( 0.8, 0.8 )
+dragger_visibility = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="InventoryScreen" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -184.5
+margin_top = -95.5
+margin_right = 184.5
+margin_bottom = 95.5
+color = Color( 0.345098, 0.34902, 0.290196, 0.839216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" parent="InventoryScreen" instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -66.943
+margin_top = -22.6783
+margin_right = 68.057
+margin_bottom = 26.3217
+
+[node name="Close" type="Button" parent="InventoryScreen"]
+margin_left = 344.449
+margin_top = 5.04538
+margin_right = 364.449
+margin_bottom = 25.0454
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="get_item" from="InventoryScreen/Inventory" to="." method="_on_Inventory_get_item"]
+[connection signal="pressed" from="InventoryScreen/Close" to="." method="_on_Close_pressed"]

@@ -5,8 +5,12 @@ enum GEM_LIST  {RED, BLUE, GREEN}
 var ANIM_MAP = {GEM_LIST.RED:"red", GEM_LIST.GREEN:"green", GEM_LIST.BLUE:"blue"}
 export (GEM_LIST) var type = GEM_LIST.RED
 onready var anim_sprite = $AnimatedSprite
-export var is_on_ground = false;
+onready var collsion = $CollisionShape2D
+export var is_visible = false;
+export var is_inventory = false;
 
-func _process(delta):
-	if is_on_ground:
-		anim_sprite.play(ANIM_MAP[type])
+
+func init():
+	if is_visible:
+		$AnimatedSprite.play(ANIM_MAP[type])
+	$CollisionShape2D.disabled = is_inventory

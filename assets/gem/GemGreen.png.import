@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cut Sapphire.png-beb7e3dc75e1ca8df0e456039067844b.stex"
+path="res://.import/GemGreen.png-008ba42d3378116af472eb0509baabcf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gem/Cut Sapphire.png"
-dest_files=[ "res://.import/Cut Sapphire.png-beb7e3dc75e1ca8df0e456039067844b.stex" ]
+source_file="res://assets/gem/GemGreen.png"
+dest_files=[ "res://.import/GemGreen.png-008ba42d3378116af472eb0509baabcf.stex" ]
 
 [params]
 

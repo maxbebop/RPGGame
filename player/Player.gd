@@ -3,6 +3,7 @@ class_name Player
 
 var SPEED = 6000
 var velocity = Vector2.ZERO
+var input_vector = Vector2.ZERO
 onready var animatrio_tree = $AnimationTree
 onready var animation_state = animatrio_tree.get("parameters/playback")
 
@@ -10,7 +11,7 @@ onready var animation_state = animatrio_tree.get("parameters/playback")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	var input_vector = Vector2.ZERO
+	input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left") 
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	input_vector =input_vector.normalized()

@@ -1,10 +1,6 @@
 extends Node2D
 
-var y_entered = 0
-var y_exited = 0
-
-var up_entered = false
-var down_enterd = false
+var entered_direction = Vector2.ZERO
 
 func set_player_layer(body, dirction):
 	var coll_layer = body.get_collision_layer()
@@ -21,23 +17,17 @@ func set_player_layer(body, dirction):
 	print("z-index end: " + str(body.z_index))
 
 func _on_UpAreaChangeMask_body_exited(body):
-	if body is Player && down_enterd:
-		set_player_layer(body, -1)
-	down_enterd = false
+	if body is Player:
+		var player = body as Player
+		print("exited: input_vector - " + str(player.input_vector) + " entered_direction: " + str(entered_direction))
+		if (entered_direction.y < 0 && player.input_vector.y < 0) || (entered_direction.y > 0 && player.input_vector.y > 0):
+			set_player_layer(body, player.input_vector.y)
+		entered_direction = Vector2.ZERO
 
 func _on_UpAreaChangeMask_body_entered(body):
 	if body is Player:
-		up_entered = true
-		down_enterd = false
+		var player = body as Player
+		print("entered: " + str(player.input_vector))
+		entered_direction = player.input_vector
 
 
-func _on_DownArea2D_body_entered(body):
-	if body is Player:
-		down_enterd = true
-		up_entered = false
-
-
-func _on_DownArea2D_body_exited(body):
-	if body is Player && up_entered:
-		set_player_layer(body, 1)
-	up_entered = false

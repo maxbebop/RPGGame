@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cut Emerald.png-239a70866f6ba899be3d386769fe4f87.stex"
+path="res://.import/GemRed.png-9256635070521539f9095922ee132bd5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gem/Cut Emerald.png"
-dest_files=[ "res://.import/Cut Emerald.png-239a70866f6ba899be3d386769fe4f87.stex" ]
+source_file="res://assets/gem/GemRed.png"
+dest_files=[ "res://.import/GemRed.png-9256635070521539f9095922ee132bd5.stex" ]
 
 [params]
 

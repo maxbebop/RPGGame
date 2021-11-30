@@ -13,17 +13,8 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="UpCollisionShape2D" type="CollisionShape2D" parent="UpAreaChangeMask"]
-scale = Vector2( 1, 0.1 )
-shape = SubResource( 1 )
-
-[node name="DownArea2D" type="Area2D" parent="."]
-
-[node name="DownCollisionShape2D2" type="CollisionShape2D" parent="DownArea2D"]
-position = Vector2( 0, 20 )
-scale = Vector2( 1, 0.1 )
+scale = Vector2( 1, 0.2 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="UpAreaChangeMask" to="." method="_on_UpAreaChangeMask_body_entered"]
 [connection signal="body_exited" from="UpAreaChangeMask" to="." method="_on_UpAreaChangeMask_body_exited"]
-[connection signal="body_entered" from="DownArea2D" to="." method="_on_DownArea2D_body_entered"]
-[connection signal="body_exited" from="DownArea2D" to="." method="_on_DownArea2D_body_exited"]
