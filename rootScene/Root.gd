@@ -15,11 +15,16 @@ const gem_factory = preload("res://props/gem/Gem.tscn")
 
 var inventory_list = []
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("inventory"):
 		inventory_screen.visible = true
 		
-
+func remove_gem(gem_type):
+	var index = inventory_list.find(gem_type)
+	if index > -1:
+		inventory_list.remove(index)
+		init_inventory_container()
+		
 func add_gem(gem_type):
 	inventory_list.push_back(gem_type)
 	var gem = create_gem(gem_type)
@@ -76,4 +81,13 @@ func _on_Close_pressed():
 
 
 func _on_Inventory_get_item(item):
-	print(get_child_count())
+	print(str(player.position) + " type: " + str(item.type))
+	var gem = create_gem(item.type)
+	remove_gem(item.type)
+	item.queue_free()
+	gem.is_inventory = false
+	gem.is_visible = true
+	gem.init()
+	var level = player.get_parent()
+	level.add_child(gem)
+	gem.position = player.position

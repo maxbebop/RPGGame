@@ -179,8 +179,17 @@ z_index = 1
 [node name="ObeliskBig" parent="." instance=ExtResource( 9 )]
 position = Vector2( 108.286, 516.815 )
 
+[node name="ObeliskMeddle" parent="." instance=ExtResource( 23 )]
+position = Vector2( 364.24, 66.8063 )
+collision_layer = 3
+collision_mask = 3
+type = 1
+
 [node name="ObeliskSmall" parent="." instance=ExtResource( 27 )]
 position = Vector2( 564.562, 530.386 )
+collision_layer = 3
+collision_mask = 3
+type = 2
 
 [node name="Well" parent="." instance=ExtResource( 30 )]
 position = Vector2( 976.091, 534.161 )
@@ -205,9 +214,6 @@ position = Vector2( 480.458, 510.927 )
 
 [node name="Altar" parent="." instance=ExtResource( 28 )]
 position = Vector2( 700.706, 51.7419 )
-
-[node name="ObeliskMeddle" parent="." instance=ExtResource( 23 )]
-position = Vector2( 364.24, 66.8063 )
 
 [node name="Chest" type="YSort" parent="."]
 

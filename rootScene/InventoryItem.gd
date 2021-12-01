@@ -23,4 +23,5 @@ func add_item(item):
 
 func _on_Button_pressed():
 	if !is_empty:
+		is_empty = true
 		emit_signal("get_item", _item)

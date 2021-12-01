@@ -8,8 +8,11 @@ onready var animatrio_tree = $AnimationTree
 onready var animation_state = animatrio_tree.get("parameters/playback")
 
 
+func _process(delta):
+	if Input.is_action_pressed("inventory"):
+		Root.player = self
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _physics_process(delta):
 	input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left") 

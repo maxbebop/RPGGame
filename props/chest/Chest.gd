@@ -15,7 +15,7 @@ func _ready():
 	init_anim_sprite()
 
 
-func _process(delta):
+func _process(_delta):
 	if can_be_opened() && Input.is_action_pressed("use"):
 		current_state = STATE.OPENED
 		Root.add_gem(gem_type)
