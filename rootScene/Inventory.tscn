@@ -4,8 +4,10 @@
 [ext_resource path="res://rootScene/Inventory.gd" type="Script" id=2]
 
 [node name="Inventory" type="GridContainer"]
-margin_right = 392.0
-margin_bottom = 68.0
+anchor_right = 0.103
+anchor_bottom = 0.053
+margin_right = -0.472008
+margin_bottom = 0.199999
 custom_constants/hseparation = 68
 columns = 3
 script = ExtResource( 2 )

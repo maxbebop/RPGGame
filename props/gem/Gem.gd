@@ -15,11 +15,13 @@ func _process(_delta):
 	if is_player_entered && Input.is_action_pressed("use"):
 		Root.add_gem(type)
 		queue_free()
+	#else:
+	#	$CollisionShape2D.visible = !is_inventory
 
 func init():
 	if is_visible:
 		$AnimatedSprite.play(ANIM_MAP[type])
-	$CollisionShape2D.disabled = is_inventory
+	$CollisionShape2D.visible = !is_inventory
 
 
 func _on_Gem_body_entered(body):

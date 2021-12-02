@@ -18,7 +18,7 @@ var is_activated = false
 var gem
 var base_color = Color(1.51,1.51,1.51,1)
 enum GEM_LIST  {RED, BLUE, GREEN}
-var ANIM_MAP = {GEM_LIST.RED:Color(30.64,0,0,0.4), GEM_LIST.GREEN:Color(1.5,100,0,0.4), GEM_LIST.BLUE:Color(1.51,0,1.51,0.4)}
+var ANIM_MAP = {GEM_LIST.RED:Color(30.64,0,0,0.4), GEM_LIST.GREEN:Color(1.5,100,0,0.4), GEM_LIST.BLUE:Color(0.1,0.25,0.87,1)}
 export (GEM_LIST) var type = GEM_LIST.RED
 
 # Called when the node enters the scene tree for the first time.
