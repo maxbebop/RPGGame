@@ -1,23 +1,32 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://props/gem/Gem.gd" type="Script" id=1]
-[ext_resource path="res://assets/gem/GemRed.png" type="Texture" id=2]
-[ext_resource path="res://assets/gem/GemGreen.png" type="Texture" id=3]
-[ext_resource path="res://assets/gem/GemBlue.png" type="Texture" id=4]
+[ext_resource path="res://assets/gem/Blue/blue_crystal_0000.png" type="Texture" id=2]
+[ext_resource path="res://assets/gem/Blue/blue_crystal_0001.png" type="Texture" id=3]
+[ext_resource path="res://assets/gem/Blue/blue_crystal_0002.png" type="Texture" id=4]
+[ext_resource path="res://assets/gem/Blue/blue_crystal_0003.png" type="Texture" id=5]
+[ext_resource path="res://assets/gem/Green/green_crystal_0000.png" type="Texture" id=6]
+[ext_resource path="res://assets/gem/Green/green_crystal_0002.png" type="Texture" id=7]
+[ext_resource path="res://assets/gem/Red/red_crystal_0002.png" type="Texture" id=8]
+[ext_resource path="res://assets/gem/Red/red_crystal_0001.png" type="Texture" id=9]
+[ext_resource path="res://assets/gem/Green/green_crystal_0003.png" type="Texture" id=10]
+[ext_resource path="res://assets/gem/Red/red_crystal_0003.png" type="Texture" id=11]
+[ext_resource path="res://assets/gem/Green/green_crystal_0001.png" type="Texture" id=12]
+[ext_resource path="res://assets/gem/Red/red_crystal_0000.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "blue",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "green",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "red",
 "speed": 5.0
@@ -32,8 +41,10 @@ collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 1 )
 animation = "green"
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )

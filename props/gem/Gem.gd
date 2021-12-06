@@ -22,6 +22,7 @@ func init():
 	if is_visible:
 		$AnimatedSprite.play(ANIM_MAP[type])
 	$CollisionShape2D.visible = !is_inventory
+	
 
 
 func _on_Gem_body_entered(body):

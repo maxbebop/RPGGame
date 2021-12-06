@@ -13,5 +13,6 @@ position = Vector2( -16, -53 )
 tile_data = PoolIntArray( 0, 34, 0 )
 
 [node name="TileMapLetters" parent="." index="3"]
+modulate = Color( 0, 1, 0.952941, 1 )
 position = Vector2( -16, 11 )
 tile_data = PoolIntArray( -65536, 35, 0 )

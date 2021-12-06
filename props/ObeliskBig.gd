@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-
 onready var tile_map_letter = $TileMapLetters
 onready var audio = $AreaLetter/AudioPlayer
 onready var gem_area = $GemArea
@@ -16,9 +15,10 @@ var audio_volume_db_min = -20
 var prev_distance = 0
 var is_activated = false
 var gem
-var base_color = Color(1.51,1.51,1.51,1)
+var base_color =Color(0, 1, 1, 1) #Color(0,247,255)
 enum GEM_LIST  {RED, BLUE, GREEN}
-var ANIM_MAP = {GEM_LIST.RED:Color(30.64,0,0,0.4), GEM_LIST.GREEN:Color(1.5,100,0,0.4), GEM_LIST.BLUE:Color(0.1,0.25,0.87,1)}
+var ANIM_MAP = {GEM_LIST.RED:Color(255,0,0,255), GEM_LIST.GREEN:Color(0,255,0,255), GEM_LIST.BLUE:Color(0,0,255,255)}
+
 export (GEM_LIST) var type = GEM_LIST.RED
 
 # Called when the node enters the scene tree for the first time.
@@ -48,15 +48,20 @@ func _physics_process(_delta):
 		
 		prev_distance = distance
 	if is_activated:
-		init_glow(6)
+		init_glow(1)
 
-		
+
 func init_glow(_value):
 	if is_activated:
 		tile_map_letter.modulate = ANIM_MAP[type]
+		print("tile_map_letter.modulate: " + str(tile_map_letter.modulate))
 	else:
 		tile_map_letter.modulate = base_color
-		tile_map_letter.modulate.a = abs(_value*glow_delta)	
+		var alpha = abs(_value*glow_delta)
+		if alpha  > 1: alpha = 1
+		tile_map_letter.modulate.a = alpha
+		print("tile_map_letter.modulate: " + str(tile_map_letter.modulate))
+		#tile_map_letter.modulate = base_color.lightened(alpha)
 	
 func get_step(_start_distance):
 	return _start_distance/glow_volume_step

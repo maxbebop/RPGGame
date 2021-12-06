@@ -33,11 +33,8 @@
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
+background_energy = 8.55
 glow_enabled = true
-glow_intensity = 1.19
-glow_strength = 1.51
-glow_hdr_threshold = 1.5
-glow_hdr_scale = 0.63
 glow_bicubic_upscale = true
 
 [node name="Level_0" type="YSort"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GemBlue.png-7113d45c846879959793fa011c28ba06.stex"
+path="res://.import/blue_crystal_0002.png-f8f2588419e2973b9b8499cda543e28e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gem/GemBlue.png"
-dest_files=[ "res://.import/GemBlue.png-7113d45c846879959793fa011c28ba06.stex" ]
+source_file="res://assets/gem/Blue/blue_crystal_0002.png"
+dest_files=[ "res://.import/blue_crystal_0002.png-f8f2588419e2973b9b8499cda543e28e.stex" ]
 
 [params]
 

@@ -6,7 +6,9 @@ var file_path = ""
 var file:File = File.new()
 var SCENE_EXT = ".tscn"
 var LEVEL_SCENE_NAME = "Level_"
+var is_altar_activeted = false
 var player
+
 onready var inventory_bar = $InventoryContainer
 onready var inventory_screen = $InventoryScreen
 onready var inventory = $InventoryScreen/Inventory

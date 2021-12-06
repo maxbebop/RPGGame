@@ -14,7 +14,7 @@ radius = 150.581
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 11.5427, 21.9167 )
 
-[node name="BaseProp" instance=ExtResource( 1 )]
+[node name="BaseProp" groups=["obelisk"] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
 [node name="Shadow" parent="." index="0"]
@@ -26,17 +26,18 @@ position = Vector2( -16, -69 )
 tile_data = PoolIntArray( 0, 5, 0 )
 
 [node name="StaticBody2D" parent="." index="2"]
+visible = false
 position = Vector2( 0, 0 )
 shape = SubResource( 1 )
 
 [node name="TileMapLetters" type="TileMap" parent="." index="3"]
-modulate = Color( 0.1, 0.25, 0.87, 1 )
 position = Vector2( -16, -5 )
 tile_set = ExtResource( 2 )
 format = 1
 tile_data = PoolIntArray( -65536, 6, 0 )
 
 [node name="AreaLetter" type="Area2D" parent="." index="4"]
+visible = false
 position = Vector2( 0, -14 )
 collision_layer = 3
 collision_mask = 3
@@ -52,6 +53,7 @@ stream = ExtResource( 4 )
 attenuation = 0.203063
 
 [node name="GemArea" type="Area2D" parent="." index="5"]
+visible = false
 collision_layer = 3
 collision_mask = 3
 
