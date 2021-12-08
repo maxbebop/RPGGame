@@ -11,10 +11,13 @@ var player
 
 #onready var inventory_bar = $InventoryContainer
 onready var inventory = $Inventory
+onready var game_menu = $GameMenu
+onready var game_over_timer = $GameOverTimer
 #const inventory_factory = preload("res://rootScene/Inventory.tscn")
 const gem_factory = preload("res://props/gem/Gem.tscn")
 
 var inventory_list = []
+	
 
 func _process(_delta):
 	#if Input.is_action_pressed("inventory"):
@@ -33,13 +36,15 @@ func add_gem(gem_type):
 	inventory.add(gem)
 	print(inventory_list)
 	#init_inventory_container()
+
+func show_game_menu():
+	game_menu.visible = true
 	
-#func init_inventory_container():
-#	delete_children(inventory_bar)
-#	for gem_type in inventory_list:
-#		var gem = create_gem(gem_type)
-#		inventory_bar.add_child(gem)
-#		gem.position.x = 30*inventory_bar.get_child_count()
+func hide_game_menu():
+	game_menu.visible = false
+
+func game_over():
+	game_over_timer.start()
 		
 	
 func create_gem(gem_type):
@@ -51,8 +56,7 @@ func create_gem(gem_type):
 	return gem
 
 func _ready():
-	#inventory = inventory_factory.instance()
-	#inventory_screen.visible = false
+	show_game_menu()
 	load_scene()
 
 func load_next_scene():
@@ -88,3 +92,16 @@ func _on_Inventory_get_item(item):
 	var level = player.get_parent()
 	level.add_child(gem)
 	gem.position = player.position
+
+
+func _on_NewGameButton_pressed():
+	hide_game_menu()
+	load_scene()
+
+
+func _on_ExitButton_pressed():
+	get_tree().quit()
+
+
+func _on_GameOverTimer_timeout():
+	show_game_menu()

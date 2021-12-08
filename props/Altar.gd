@@ -6,6 +6,7 @@ onready var letters = $Letters
 onready var audio = $AudioPlayer
 onready var teleport_particles= $TeleportParticles
 var altar_activeted = false
+var player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +14,9 @@ func _ready():
 
 func _process(_delta):
 	if altar_activeted && Input.is_action_pressed("use"):
+		player.teleport()
 		teleport_particles.restart()
+		Root.game_over()
 
 func is_activated():
 	var is_activated = false
@@ -27,6 +30,7 @@ func is_activated():
 
 func _on_AreaLetters_body_entered(body):
 	if body is Player && is_activated():
+		player = body as Player
 		print("body_entered: " + body.name)
 		#letters.modulate.a = 1.3
 		letters.modulate = Color(0,247,255, 0.1) 
@@ -38,6 +42,7 @@ func _on_AreaLetters_body_entered(body):
 func _on_AreaLetters_body_exited(body):
 	if body is Player && is_activated():
 		print("body_exited: " + body.name)
+		player = null
 		letters.visible = false
 		audio.stop()
 		altar_activeted = false

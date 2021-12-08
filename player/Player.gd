@@ -6,6 +6,7 @@ var velocity = Vector2.ZERO
 var input_vector = Vector2.ZERO
 onready var animatrio_tree = $AnimationTree
 onready var animation_state = animatrio_tree.get("parameters/playback")
+export (float) var shader_amplitude = 0.0
 
 
 #func _process(delta):
@@ -30,7 +31,14 @@ func _physics_process(delta):
 		Root.player = self
 		
 	velocity =+ move_and_slide(velocity *delta)
+	
 
+func teleport():
+	$ShadowSprite.visible = false
+	$AnimationPlayer.play("Teleport")
+
+func update_amplitude():
+	$Sprite.material.set("shader_param/amplitude", shader_amplitude)
 
 func _on_AreaChangeMask_body_entered(body):
 	pass # Replace with function body.

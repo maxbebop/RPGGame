@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/TX Shadow.png" type="Texture" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
@@ -151,6 +151,89 @@ tracks/0/keys = {
 "values": [ 9, 10, 11, 10 ]
 }
 
+[sub_resource type="Animation" id=42]
+resource_name = "Teleport"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:shader_amplitude")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.435275, 0.287175 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.9, 1.1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "update_amplitude"
+}, {
+"args": [  ],
+"method": "update_amplitude"
+}, {
+"args": [  ],
+"method": "update_amplitude"
+}, {
+"args": [  ],
+"method": "update_amplitude"
+}, {
+"args": [  ],
+"method": "update_amplitude"
+}, {
+"args": [  ],
+"method": "update_amplitude"
+}, {
+"args": [  ],
+"method": "update_amplitude"
+}, {
+"args": [  ],
+"method": "update_amplitude"
+}, {
+"args": [  ],
+"method": "update_amplitude"
+}, {
+"args": [  ],
+"method": "update_amplitude"
+}, {
+"args": [  ],
+"method": "update_amplitude"
+} ]
+}
+
+[sub_resource type="Shader" id=40]
+code = "shader_type canvas_item;
+
+uniform float amplitude: hint_range(0.0,1.0);
+uniform float rate: hint_range(0.0,60.0);
+
+void fragment(){
+	//WAVES
+	//float final_offset = (sin(UV.y * rate))*(amplitude/1.0);
+	float offset_dir = step(sin(UV.x*rate),0.0)*2.0;
+	float final_offset = ((offset_dir - 1.0) * (amplitude/1.0));
+	COLOR = texture(TEXTURE, vec2(UV.x, UV.y + final_offset));
+	
+	
+	//COLOR.a = clamp(texture(TEXTURE, vec2(UV.x+final_offset, UV.y + final_offset)).a - (amplitude/1.0),0.0,0.1);
+	COLOR.a = clamp(texture(TEXTURE, vec2(UV.x+final_offset, UV.y + final_offset)).a - (amplitude/1.0),0.0,1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=41]
+shader = SubResource( 40 )
+shader_param/amplitude = 0.0
+shader_param/rate = 60.0
+
 [sub_resource type="AnimationNodeAnimation" id=23]
 animation = "IdleLeft"
 
@@ -234,8 +317,10 @@ anims/RunDown = SubResource( 15 )
 anims/RunLeft = SubResource( 16 )
 anims/RunRight = SubResource( 17 )
 anims/RunUp = SubResource( 18 )
+anims/Teleport = SubResource( 42 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 41 )
 position = Vector2( 0, -11 )
 texture = ExtResource( 3 )
 hframes = 3
