@@ -9,7 +9,8 @@ export (Gem.GEM_LIST) var gem_type
 
 onready var cover_anim_sprite = $CoverAnimSprite
 onready var shadow_anim_sprite = $ShadowAnimSprite
-
+onready var open_particles = $OpenParticles
+onready var open_audio = $OpenAudio
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	init_anim_sprite()
@@ -20,7 +21,8 @@ func _process(_delta):
 		current_state = STATE.OPENED
 		Root.add_gem(gem_type)
 		init_anim_sprite()
-		
+		open_audio.play()
+		open_particles.restart()	
 
 func init_anim_sprite():
 	cover_anim_sprite.play(ANIM_MAP[current_state])

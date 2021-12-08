@@ -8,9 +8,9 @@ onready var animatrio_tree = $AnimationTree
 onready var animation_state = animatrio_tree.get("parameters/playback")
 
 
-func _process(delta):
-	if Input.is_action_pressed("inventory"):
-		Root.player = self
+#func _process(delta):
+#	if Input.is_action_pressed("inv_item_1") || Input.is_action_pressed("inv_item_2")|| Input.is_action_pressed("inv_item_3"):
+#		Root.player = self
 
 
 func _physics_process(delta):
@@ -27,6 +27,7 @@ func _physics_process(delta):
 	else:
 		animation_state.travel("Idle")
 		velocity  = Vector2.ZERO
+		Root.player = self
 		
 	velocity =+ move_and_slide(velocity *delta)
 

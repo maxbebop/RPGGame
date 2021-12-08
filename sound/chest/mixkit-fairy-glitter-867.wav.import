@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mixkit-fairy-glitter-867.wav-ba4fa0607f9f8137b1a2e15d2ead07b8.sample"
+
+[deps]
+
+source_file="res://sound/chest/mixkit-fairy-glitter-867.wav"
+dest_files=[ "res://.import/mixkit-fairy-glitter-867.wav-ba4fa0607f9f8137b1a2e15d2ead07b8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,12 +1,42 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://rootScene/InventoryItem.gd" type="Script" id=1]
 [ext_resource path="res://assets/gem/GemBlue.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/itemFrame_alphaFront.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/itemFrame_blue.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/itemFrame_green.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/itemFrame_red.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/itemFrame.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/itemFrame_alphaBack.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "red",
+"speed": 5.0
+} ]
 
 [node name="InventoryItem" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Button" type="Button" parent="."]
+visible = false
 margin_left = -34.0
 margin_top = -34.0
 __meta__ = {
@@ -17,5 +47,28 @@ __meta__ = {
 visible = false
 position = Vector2( 17, 17 )
 texture = ExtResource( 2 )
+
+[node name="BackgroundSprite" type="Sprite" parent="."]
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 7 )
+
+[node name="FrontSprite" type="Sprite" parent="."]
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 8 )
+
+[node name="ItemAnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.09, 0.09 )
+frames = SubResource( 1 )
+animation = "empty"
+
+[node name="ItemIndexLabel" type="Label" parent="."]
+margin_left = -19.0
+margin_top = -19.0
+margin_right = -7.0
+margin_bottom = -5.0
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

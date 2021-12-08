@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/floaty_64.png-92e3af6cc6e5090bf2db223e1d269237.stex"
+path="res://.import/itemFrame_alphaFront.png-1f9bea30cadcc1280aee6b80cf860d12.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/particles/floaty_64.png"
-dest_files=[ "res://.import/floaty_64.png-92e3af6cc6e5090bf2db223e1d269237.stex" ]
+source_file="res://assets/gui/itemFrame_alphaFront.png"
+dest_files=[ "res://.import/itemFrame_alphaFront.png-1f9bea30cadcc1280aee6b80cf860d12.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

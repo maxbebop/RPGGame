@@ -10,6 +10,8 @@ export var is_visible = false;
 export var is_inventory = false;
 var is_player_entered = false
 
+func get_str_color():
+	return ANIM_MAP[type]
 
 func _process(_delta):
 	if is_player_entered && Input.is_action_pressed("use"):

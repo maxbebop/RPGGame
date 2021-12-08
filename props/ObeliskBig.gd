@@ -33,7 +33,7 @@ func _process(_delta):
 				is_activated = type == area.type
 				break
 			is_activated = false
-	$Label.text = "type: " + str(type) + "; is activated: " + str(is_activated)
+	#$Label.text = "type: " + str(type) + "; is activated: " + str(is_activated)
 
 func _physics_process(_delta):
 	if is_player_entered:
@@ -54,14 +54,13 @@ func _physics_process(_delta):
 func init_glow(_value):
 	if is_activated:
 		tile_map_letter.modulate = ANIM_MAP[type]
-		print("tile_map_letter.modulate: " + str(tile_map_letter.modulate))
+		#print("tile_map_letter.modulate: " + str(tile_map_letter.modulate))
 	else:
 		tile_map_letter.modulate = base_color
 		var alpha = abs(_value*glow_delta)
 		if alpha  > 1: alpha = 1
 		tile_map_letter.modulate.a = alpha
-		print("tile_map_letter.modulate: " + str(tile_map_letter.modulate))
-		#tile_map_letter.modulate = base_color.lightened(alpha)
+		#print("tile_map_letter.modulate: " + str(tile_map_letter.modulate))
 	
 func get_step(_start_distance):
 	return _start_distance/glow_volume_step

@@ -16,13 +16,15 @@ __meta__ = {
 }
 
 [node name="InventoryItem" parent="." instance=ExtResource( 1 )]
-position = Vector2( 35, 25.125 )
+position = Vector2( 22, 22.125 )
 
 [node name="InventoryItem2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 70, 25.125 )
+position = Vector2( 65, 22.125 )
+index = 2
 
 [node name="InventoryItem3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 105, 25.125 )
+position = Vector2( 108, 22.125 )
+index = 3
 
 [connection signal="get_item" from="InventoryItem" to="." method="_on_InventoryItem_get_item"]
 [connection signal="get_item" from="InventoryItem2" to="." method="_on_InventoryItem_get_item"]

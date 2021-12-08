@@ -9,37 +9,37 @@ var LEVEL_SCENE_NAME = "Level_"
 var is_altar_activeted = false
 var player
 
-onready var inventory_bar = $InventoryContainer
-onready var inventory_screen = $InventoryScreen
-onready var inventory = $InventoryScreen/Inventory
+#onready var inventory_bar = $InventoryContainer
+onready var inventory = $Inventory
 #const inventory_factory = preload("res://rootScene/Inventory.tscn")
 const gem_factory = preload("res://props/gem/Gem.tscn")
 
 var inventory_list = []
 
 func _process(_delta):
-	if Input.is_action_pressed("inventory"):
-		inventory_screen.visible = true
+	#if Input.is_action_pressed("inventory"):
+	#inventory_screen.visible = true
+	pass
 		
 func remove_gem(gem_type):
 	var index = inventory_list.find(gem_type)
 	if index > -1:
 		inventory_list.remove(index)
-		init_inventory_container()
+		#init_inventory_container()
 		
 func add_gem(gem_type):
 	inventory_list.push_back(gem_type)
 	var gem = create_gem(gem_type)
 	inventory.add(gem)
 	print(inventory_list)
-	init_inventory_container()
+	#init_inventory_container()
 	
-func init_inventory_container():
-	delete_children(inventory_bar)
-	for gem_type in inventory_list:
-		var gem = create_gem(gem_type)
-		inventory_bar.add_child(gem)
-		gem.position.x = 30*inventory_bar.get_child_count()
+#func init_inventory_container():
+#	delete_children(inventory_bar)
+#	for gem_type in inventory_list:
+#		var gem = create_gem(gem_type)
+#		inventory_bar.add_child(gem)
+#		gem.position.x = 30*inventory_bar.get_child_count()
 		
 	
 func create_gem(gem_type):
@@ -52,7 +52,7 @@ func create_gem(gem_type):
 
 func _ready():
 	#inventory = inventory_factory.instance()
-	inventory_screen.visible = false
+	#inventory_screen.visible = false
 	load_scene()
 
 func load_next_scene():
@@ -76,11 +76,6 @@ static func delete_children(node):
 	for n in node.get_children():
 		node.remove_child(n)
 		n.queue_free()
-
-
-func _on_Close_pressed():
-	inventory_screen.visible = false
-
 
 func _on_Inventory_get_item(item):
 	print(str(player.position) + " type: " + str(item.type))
