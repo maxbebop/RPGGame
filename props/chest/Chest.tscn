@@ -6,45 +6,45 @@
 [ext_resource path="res://assets/particles/offset_glow.png" type="Texture" id=4]
 [ext_resource path="res://sound/chest/mixkit-fairy-glitter-867.wav" type="AudioStream" id=5]
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 92, 64, 46, 64 )
-
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 92, 0, 46, 64 )
 
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 92, 64, 46, 64 )
+
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ SubResource( 2 ) ],
-"loop": true,
-"name": "opened",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 1 ) ],
 "loop": true,
 "name": "closed",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "opened",
+"speed": 5.0
 } ]
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 2 )
-region = Rect2( 73, 64, 73, 64 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
 region = Rect2( 73, 0, 73, 64 )
 
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 73, 64, 73, 64 )
+
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 5 ) ],
-"loop": true,
-"name": "opened",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 4 ) ],
 "loop": true,
 "name": "closed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "opened",
 "speed": 5.0
 } ]
 
@@ -62,20 +62,20 @@ min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0.00543478, -66.2728 ), 0.0, -569.631, 0, 0, Vector2( 0.994565, 359.182 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=12]
+[sub_resource type="CurveTexture" id=16]
 curve = SubResource( 11 )
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.236025, 0.509317, 1 )
 colors = PoolColorArray( 0.219608, 0.0235294, 0.811765, 1, 1, 1, 1, 1, 0.654902, 0.0627451, 0.945098, 1, 0, 0.941176, 0.996078, 1 )
 
-[sub_resource type="GradientTexture" id=14]
+[sub_resource type="GradientTexture" id=17]
 gradient = SubResource( 13 )
 
 [sub_resource type="Curve" id=15]
 _data = [ Vector2( 0.0108696, 0.480682 ), 0.0, 2.7021, 0, 0, Vector2( 0.983696, 0.517045 ), -0.0145454, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=16]
+[sub_resource type="CurveTexture" id=18]
 curve = SubResource( 15 )
 
 [sub_resource type="ParticlesMaterial" id=9]
@@ -83,15 +83,15 @@ flag_disable_z = true
 gravity = Vector3( 0, -150, 0 )
 angular_velocity = 1.0
 angular_velocity_random = 1.0
-angular_velocity_curve = SubResource( 12 )
+angular_velocity_curve = SubResource( 16 )
 orbit_velocity = 0.0
 orbit_velocity_random = 1.0
 angle = 360.0
 angle_random = 1.0
 scale = 0.5
 scale_random = 0.3
-scale_curve = SubResource( 16 )
-color_ramp = SubResource( 14 )
+scale_curve = SubResource( 18 )
+color_ramp = SubResource( 17 )
 
 [node name="Chest" type="StaticBody2D"]
 script = ExtResource( 3 )

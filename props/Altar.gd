@@ -4,11 +4,16 @@ extends StaticBody2D
 onready var activate_coll = $AreaLetters
 onready var letters = $Letters
 onready var audio = $AudioPlayer
-
+onready var teleport_particles= $TeleportParticles
+var altar_activeted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	letters.visible = false
+
+func _process(_delta):
+	if altar_activeted && Input.is_action_pressed("use"):
+		teleport_particles.restart()
 
 func is_activated():
 	var is_activated = false
@@ -27,6 +32,7 @@ func _on_AreaLetters_body_entered(body):
 		letters.modulate = Color(0,247,255, 0.1) 
 		letters.visible = true
 		audio.play()
+		altar_activeted = true
 
 
 func _on_AreaLetters_body_exited(body):
@@ -34,3 +40,4 @@ func _on_AreaLetters_body_exited(body):
 		print("body_exited: " + body.name)
 		letters.visible = false
 		audio.stop()
+		altar_activeted = false
