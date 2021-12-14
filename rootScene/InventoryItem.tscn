@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://rootScene/InventoryItem.gd" type="Script" id=1]
 [ext_resource path="res://assets/gem/GemBlue.png" type="Texture" id=2]
@@ -31,6 +31,9 @@ animations = [ {
 "name": "red",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20, 20 )
 
 [node name="InventoryItem" type="Node2D"]
 script = ExtResource( 1 )
@@ -71,4 +74,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( -20, -20 )
+shape = SubResource( 2 )
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

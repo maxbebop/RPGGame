@@ -15,6 +15,8 @@ export (float) var shader_amplitude = 0.0
 
 
 func _physics_process(delta):
+	if !Root.is_game_available:
+		return
 	input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left") 
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -31,14 +33,15 @@ func _physics_process(delta):
 		Root.player = self
 		
 	velocity =+ move_and_slide(velocity *delta)
+	$Label.text = "z-index: " + str(self.z_index) + "; col_l: " + str(self.get_collision_layer())
 	
 
 func teleport():
-	$ShadowSprite.visible = false
+	#$ShadowSprite.visible = false
 	$AnimationPlayer.play("Teleport")
 
 func update_amplitude():
 	$Sprite.material.set("shader_param/amplitude", shader_amplitude)
 
-func _on_AreaChangeMask_body_entered(body):
+func _on_AreaChangeMask_body_entered(_body):
 	pass # Replace with function body.

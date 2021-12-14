@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/frozen orchard.mp3-79a855ba9e37cbbc797d78d79d8132d2.mp3str"
+
+[deps]
+
+source_file="res://sound/frozen orchard.mp3"
+dest_files=[ "res://.import/frozen orchard.mp3-79a855ba9e37cbbc797d78d79d8132d2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

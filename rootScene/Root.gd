@@ -7,12 +7,14 @@ var file:File = File.new()
 var SCENE_EXT = ".tscn"
 var LEVEL_SCENE_NAME = "Level_"
 var is_altar_activeted = false
+var is_game_available = false
 var player
 
 #onready var inventory_bar = $InventoryContainer
 onready var inventory = $Inventory
 onready var game_menu = $GameMenu
 onready var game_over_timer = $GameOverTimer
+onready var game_audio = $GameAudioPlayer
 #const inventory_factory = preload("res://rootScene/Inventory.tscn")
 const gem_factory = preload("res://props/gem/Gem.tscn")
 
@@ -39,9 +41,11 @@ func add_gem(gem_type):
 
 func show_game_menu():
 	game_menu.visible = true
+	is_game_available = false
 	
 func hide_game_menu():
 	game_menu.visible = false
+	is_game_available = true
 
 func game_over():
 	game_over_timer.start()
@@ -80,6 +84,13 @@ static func delete_children(node):
 	for n in node.get_children():
 		node.remove_child(n)
 		n.queue_free()
+		
+func set_game_audio_volume_db_up(value: float):
+	if game_audio.volume_db < -10:
+		game_audio.volume_db += value
+	
+func set_game_audio_volume_db_down(value: float):
+	game_audio.volume_db -= value
 
 func _on_Inventory_get_item(item):
 	print(str(player.position) + " type: " + str(item.type))
@@ -91,6 +102,7 @@ func _on_Inventory_get_item(item):
 	gem.init()
 	var level = player.get_parent()
 	level.add_child(gem)
+	gem.z_index = player.z_index
 	gem.position = player.position
 
 

@@ -34,3 +34,7 @@ func get_item_pressed():
 		is_empty = true
 		anim_sprite.play("empty")
 		emit_signal("get_item", _item)
+
+
+func _on_TouchScreenButton_pressed():
+	get_item_pressed()

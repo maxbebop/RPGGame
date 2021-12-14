@@ -42,9 +42,11 @@ func _physics_process(_delta):
 		init_glow(d)
 		if(prev_distance > distance):
 			audio.volume_db += d*audio_volume_db_step
+			Root.set_game_audio_volume_db_down(d*audio_volume_db_step)
 
 		elif prev_distance < distance:
 			audio.volume_db -= d*audio_volume_db_step
+			Root.set_game_audio_volume_db_up(d*audio_volume_db_step)
 		
 		prev_distance = distance
 	if is_activated:
